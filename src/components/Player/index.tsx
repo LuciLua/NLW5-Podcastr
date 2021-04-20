@@ -14,8 +14,8 @@ export function Player(){
                     <span>00:00</span>
                     <div className={styles.slider}>
                         <div className={styles.emptySlider}></div>
-                        <span>00:00</span>
                     </div>
+                    <span>00:00</span>
                 </div>
                 <div className={styles.buttons}>
                     <button type="button">
