@@ -33,6 +33,13 @@
     }
 }
 
+@media (max-width: 1366px) {
+    html {
+      max-width: 1366px;
+      font-size: 80%;
+    }
+  }
+
 body{
     background: var(--gray-50);
 
@@ -64,4 +71,3 @@ button{
 // usar rem --> pois cada rem equivale ao tamanho da fontsiz do root/html
 //ou seja: se html fotn size é 10px, o rem 2 significa 10*2= 20px
 // em -->tamanho relativo so ao elemento em volta do texto
-
