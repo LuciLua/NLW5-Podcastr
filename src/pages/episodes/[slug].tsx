@@ -8,13 +8,11 @@ import ptBR from 'date-fns/locale/pt-BR';
 import Link from 'next/link';
 
 import { convertDurationToTimeString } from '../../utils/convertDuratinToTimeString';
-import { type } from 'node:os';
 
 import styles from './episode.module.scss'
 
 import Image from 'next/image'
-import { useContext } from 'react';
-import { PlayerContext, usePlayer } from '../../contexts/PlayerContext';
+import { usePlayer } from '../../contexts/PlayerContext';
 
 import Head from 'next/head';
 
@@ -23,7 +21,7 @@ type Episode = {
     title: string;
     thumbnail: string;
     members: string;
-    duration: string;
+    duration: number;
     durationAsString: string;
     url: string;
     publishedAt: string;
@@ -36,6 +34,7 @@ type EpisodeProps = {
 
 export default function Episode( {episode}: EpisodeProps ){
     const { play } = usePlayer();
+
     return(
         <div className={styles.episode}>
             
@@ -45,7 +44,7 @@ export default function Episode( {episode}: EpisodeProps ){
 
             <div className={styles.thumbnailContainer}>
                 <Link href="/">
-                    <button>
+                    <button type="button">
                         <img src="/arrow-left.svg" alt="Voltar"/>
                     </button>
                 </Link>

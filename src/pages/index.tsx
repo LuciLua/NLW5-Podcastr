@@ -17,11 +17,9 @@ import ptBR from 'date-fns/locale/pt-BR';
 import { convertDurationToTimeString } from '../utils/convertDuratinToTimeString';
 
 import styles from './home.module.scss'
-import { useContext } from 'react';
 import { usePlayer } from '../contexts/PlayerContext';
 
 import Head from 'next/head'
-import { Header } from '../components/Header';
 
 // tipagem
 
