@@ -2,8 +2,8 @@ import format from 'date-fns/format';
 import ptBR from 'date-fns/locale/pt-BR';
 import styles from './styles.module.scss';
 
-import { useHeader, useTheme } from '../../contexts/HeaderContext';
-import { useEffect, useRef, useState } from 'react';
+import { useHeader, } from '../../contexts/HeaderContext';
+import { useEffect, useRef } from 'react';
 
 export function Header(){
     const currentDate = format(new Date(), 'EEEEEE, d MMMM', {
@@ -12,8 +12,6 @@ export function Header(){
 
     const imageRef = useRef <HTMLImageElement> (null);
     
-    const { theme, changeTheme } = useTheme()
-
     const { 
         toggleTheme,
         setThemeState,

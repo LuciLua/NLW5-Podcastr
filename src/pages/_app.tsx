@@ -8,15 +8,12 @@ import styles from '../styles/app.module.scss'
 import { Header } from '../components/Header'
 import { Player } from '../components/Player'
 
-import { useState } from 'react'
-
 import { PlayerContextProvider } from '../contexts/PlayerContext'
-import { HeaderContextProvider, ThemeProvider } from '../contexts/HeaderContext'
+import { HeaderContextProvider} from '../contexts/HeaderContext'
 
 //inicio do codigo
 function MyApp({ Component, pageProps }) {
   return(
-    <ThemeProvider>
       <HeaderContextProvider>
         <PlayerContextProvider>  
           <div className={styles.wrapper}>
@@ -28,7 +25,6 @@ function MyApp({ Component, pageProps }) {
           </div>
         </PlayerContextProvider>
       </HeaderContextProvider>
-    </ThemeProvider>
   )
 }
 
