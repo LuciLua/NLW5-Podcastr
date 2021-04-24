@@ -17,7 +17,40 @@
     }
 
     span{
-        margin-left: auto;
+        width: fit-content;
+        padding-left: 5rem;
         text-transform: capitalize;
+    }
+
+    button{
+        width: 2rem;
+        height: 2rem;
+        background-color: transparent;
+        border: none;
+        filter: invert(0) sepia(1) saturate(3) hue-rotate(100deg);
+        margin-left: auto;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+
+        &.isActive{
+            filter: invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+        }
+
+        span{
+            padding-top: 0.5rem!important;
+            padding: 0;
+            width:8rem;
+            height: 100%;
+            display: flex;
+            font-family: Lexend;
+            justify-content: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #000;
+        }
     }
 }

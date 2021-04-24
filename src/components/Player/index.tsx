@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { useRef, useEffect, useState } from 'react';
-import { PlayerContext, usePlayer } from '../../contexts/PlayerContext';
+import { usePlayer } from '../../contexts/PlayerContext';
 import styles from './styles.module.scss';
 
 import Slider from 'rc-slider';
@@ -116,7 +116,8 @@ export function Player(){
                 </div>
                 {/* //so vai executar o que tem depois dos "ês comerciais"/&& caso episode seja valida */}
                 { episode && (
-                    <audio src={episode.url}
+                    <audio 
+                    src={episode.url}
                     autoPlay
                     onEnded={handleEpisodeEnded}
                     ref={audioRef}
@@ -134,7 +135,10 @@ export function Player(){
                     onClick={toggleShuffle}
                     className={isShuffling ? styles.isActive : ''} 
                     >
-                        <img src="/shuffle.svg" alt="Embaralhar"/>
+                        <img 
+                        src="/shuffle.svg" 
+                        alt="Embaralhar"/>
+                        
                     </button>
                     <button type="button" disabled={!episode || !hasPrevious} onClick={playPrevious}>
                         <img src="/play-previous.svg" alt="Tocar a anterior"/>

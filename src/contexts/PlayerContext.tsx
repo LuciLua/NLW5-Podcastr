@@ -1,6 +1,7 @@
 import { type } from 'node:os';
 import { Children, createContext, ReactNode, useContext, useState } from 'react';
 import { Player } from '../components/Player';
+import { Header } from '../components/Header';
 
 // Tipagem
 
@@ -29,7 +30,6 @@ type PlayerContextData = {
     toggleShuffle: () => void;
     clearPlayerState: () => void;
     isShuffling: boolean;
-
 };
 
 type PlayerContextProviderProps = {
@@ -45,7 +45,6 @@ export function PlayerContextProvider({ children }: PlayerContextProviderProps )
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLooping, setIsLooping] = useState(false);
   const [isShuffling, setIsShuffling] = useState(false);
-
 
   function play(episode: Episode) {
     setEpisodeList([episode]);
@@ -102,6 +101,8 @@ export function PlayerContextProvider({ children }: PlayerContextProviderProps )
   }
 
   return (
+
+
     <PlayerContext.Provider value={{ 
     episodeList,
     currentEpisodeIndex,
@@ -118,7 +119,7 @@ export function PlayerContextProvider({ children }: PlayerContextProviderProps )
     setPlayingState,
     toggleLoop,
     toggleShuffle,
-    clearPlayerState
+    clearPlayerState,
     }}
      >
         {children}

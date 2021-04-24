@@ -16,10 +16,12 @@ import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { convertDurationToTimeString } from '../utils/convertDuratinToTimeString';
 
-import styles from './home.module.scss'
+import styles from './home.module.scss';
+
 import { usePlayer } from '../contexts/PlayerContext';
 
 import Head from 'next/head'
+
 
 // tipagem
 
@@ -32,6 +34,7 @@ type Episode = {
     durationAsString: string;
     url: string;
     publishedAt: string;
+    episode: string;
 }
 
 type HomeProps = {
