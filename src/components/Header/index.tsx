@@ -2,7 +2,7 @@ import format from 'date-fns/format';
 import ptBR from 'date-fns/locale/pt-BR';
 import styles from './styles.module.scss';
 
-import { useHeader } from '../../contexts/HeaderContext';
+import { useHeader, useTheme } from '../../contexts/HeaderContext';
 import { useEffect, useRef, useState } from 'react';
 
 export function Header(){
@@ -11,6 +11,8 @@ export function Header(){
     })
 
     const imageRef = useRef <HTMLImageElement> (null);
+    
+    const { theme, changeTheme } = useTheme()
 
     const { 
         toggleTheme,
