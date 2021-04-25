@@ -263,7 +263,8 @@
         width: 100%;
 
         th, td{
-            padding: 0.75rem 1rem;border-bottom: 1px solid var(--gray-100);
+            padding: 1.75rem 1rem;
+            border-bottom: 1px solid var(--gray-100);
         }
 
         th{
@@ -331,8 +332,8 @@
         width: 100%;
 
         th, td{
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid var(--gray-100);
+            padding: 1.75rem 1rem;
+            border-bottom: 1px solid rgb(49, 52, 60);
             color: rgb(133, 133, 133);
 
         }
