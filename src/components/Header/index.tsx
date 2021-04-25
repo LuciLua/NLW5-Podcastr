@@ -14,7 +14,6 @@ export function Header(){
     
     const { 
         toggleTheme,
-        setThemeState,
         isDarking 
     } = useHeader();
 
@@ -32,8 +31,8 @@ export function Header(){
     });
 
     return(
-        <header className={styles.headerContainer}>
-            <img src="/logo.svg" alt="Podcastr" />
+        <header className={!isDarking ? styles.headerContainer : styles.headerContainerisActive}>
+            <img src="/logo.svg" alt="Podcastr"/>
 
             <p>O melhor para você ouvir sempre!</p>
 
@@ -66,7 +65,7 @@ export function Header(){
                             <span>Tema atual: Dark</span>
                         }
             </button>
-
+            
             <span>{currentDate}</span>
         </header>
     );

@@ -1,3 +1,123 @@
+
+@media only screen and (max-width: 600px) {
+    .playerContainer{
+        width: 100%!important;
+        height: 15%!important;
+        padding: 3rem 4rem;
+    
+        background: var(--purple-500);
+        color: var(--white);
+    
+        display: block;
+        position: fixed;
+        bottom: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    
+        header{
+            display: none!important;
+            // gap para colocar espaçamentos entre os elementos dentro de header
+        }
+    
+    }
+    .currentEpisode{
+        display: none!important;
+
+
+        img{
+            display: none!important;
+
+        }
+
+        strong{
+            display: none!important;
+
+        }
+
+        span{
+            display: none!important;
+            
+
+        }
+    }
+    
+    .emptyPlayer{
+       
+        display: none!important;
+
+    }
+
+    .buttons{
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2.5rem;
+        gap: 1.5rem;
+        top: -70px!important;
+    
+        button{
+            background: transparent;
+            border: 0;
+            font-size: 0;
+    
+            transition: filter 0.2s;
+    
+            &:disabled{
+                cursor: default;
+                opacity: 0.5;
+            }
+    
+            &:hover:not(:disabled){
+                filter: brightness(0.85);
+            }
+    
+            &.isActive{
+                filter: invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+            }
+    
+            
+            &.isActive:hover{
+                filter: brightness(0.6) invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+            }
+    
+    
+            &.playButton{
+                width: 4rem;
+                height: 4rem;
+                border-radius: 1rem;
+                background: var(--purple-400);
+    
+                &:hover:not(:disabled){
+                    filter: brightness(0.95);
+                }
+            }
+        }
+    }
+    .slider{
+        position: relative;
+        top: 40px!important;
+
+
+        
+    }
+
+    .emptySlider{
+        position: relative;
+        top: 60px!important;
+
+    }
+
+    .progress span{
+        position: relative;
+        top: 40px!important;
+    }
+
+  }
+
+//fim media
+
 .playerContainer{
     width: 26.5rem;
     height: 100vh;
@@ -60,7 +180,7 @@
     .emptyPlayer{
         width: 100%;
         height: 20rem;
-        border: 1.5px dashed var(--purple-300);
+        border: 1.5px dashed var(--purple-300)!important;
         border-radius: 1.5rem;
         background: linear-gradient(143.8deg, rgba(145,100,250,0.8) 0%, rgba(0,0,0,0) 100%);
 
@@ -137,6 +257,158 @@
 
             &:hover:not(:disabled){
                 filter: brightness(0.95);
+            }
+        }
+    }
+}
+
+
+//the dark
+
+.playerContainerisActive{
+    width: 26.5rem;
+    height: 100vh;
+    padding: 3rem 4rem;
+
+    background: rgb(17, 18, 24);
+    color: var(--white);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    header{
+        display: flex;
+        align-items: center;
+        gap: 1rem; 
+        // gap para colocar espaçamentos entre os elementos dentro de header
+    }
+
+    strong{
+        font-family: Lexend, sans-serif;
+        font-weight: 600;
+    }
+}
+
+    .empty{
+        align-self: stretch;
+
+
+            //quando ele estiver em empty, vai opacity...
+            &.empty .progress{
+                opacity: 0.5;
+            }
+    }
+
+
+    .currentEpisode{
+        text-align: center;
+
+        img{
+            border-radius: 1.5rem;
+        }
+
+        strong{
+            display: block;
+            margin-top: 2rem;
+            font: 600 1.25rem Lexend, sans-serif;
+            line-height: 1.75rem;
+        }
+
+        span{
+            display: block;
+            margin-top: 1rem;
+            opacity: 0.6;
+            line-height: 1.5rem;
+        }
+    }
+
+    .emptyPlayerisActive{
+        width: 100%;
+        height: 20rem;
+        border: 1.5px dashed #33ed97!important;
+        border-radius: 1.5rem;
+        background: linear-gradient(143.8deg, rgba(23, 27, 43, 0.8) 0%, rgba(0,0,0,0) 100%);
+
+        padding: 4rem;
+        text-align: center;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .progress{
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+
+        span{
+            display: inline-block;
+            width: 4rem;
+            text-align: center;
+            }
+        
+        .slider{
+            flex: 1;
+
+            .emptySlider{
+                width: 100%;
+                height: 4px;
+                background: #33ed97;
+                border-radius: 2px;
+            }
+        }
+    }
+
+.buttonsisActive{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2.5rem;
+    gap: 1.5rem;
+
+    
+    button{
+        border: 0;
+        font-size: 0;
+        filter: contrast(0.3);
+        background-color: transparent;
+        transition: filter 0.2s;
+        
+
+        &:disabled{
+            cursor: default;
+            opacity: 0.2;
+            filter: brightness(0.1) invert(1) sepia(1) saturate(1);
+            background-color: transparent;
+        }
+
+        &:hover:not(:disabled){
+            filter: brightness(0.85);
+        }
+
+        &.isActive{
+            filter: brightness(0.6) invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+        }
+
+        
+        &.isActive:hover{
+            filter: brightness(0.1) invert(1) sepia(1) saturate(1);
+        }
+
+
+        &.playButton{
+            width: 4rem;
+            height: 4rem;
+            border-radius: 1rem;
+            background-color: #33ed9614;
+
+            &:hover:not(:disabled){
+            filter: brightness(0.3) invert(0.90) saturate(2) hue-rotate(133deg);
+                
             }
         }
     }

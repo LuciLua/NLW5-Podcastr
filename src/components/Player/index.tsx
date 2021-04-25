@@ -6,9 +6,15 @@ import styles from './styles.module.scss';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { convertDurationToTimeString } from '../../utils/convertDuratinToTimeString';
+import { useHeader } from '../../contexts/HeaderContext';
 
 
 export function Player(){
+
+    const { 
+        toggleTheme,
+        isDarking 
+    } = useHeader();
 
     // criando estados
 
@@ -69,7 +75,7 @@ export function Player(){
     const episode = episodeList[currentEpisodeIndex]
 
     return(
-        <div className={styles.playerContainer}>
+        <div className={!isDarking ? styles.playerContainer : styles.playerContainerisActive}>
             <header>
                 <img src="/playing.svg" alt="Tocando agora"/>
                 <strong>Tocando agora</strong>
@@ -89,14 +95,14 @@ export function Player(){
                 
                 ):(
                 
-                <div className={styles.emptyPlayer}>
+                <div className={!isDarking ? styles.emptyPlayer : styles.emptyPlayerisActive}>
                     <strong>Selecione um Podcast para ouvir</strong>
                 </div>)
             }
             <footer className={!episode ? styles.empty : ''}>
                 <div className={styles.progress}>
                 <span>{convertDurationToTimeString(progress)}</span>
-                    <div className={styles.slider}>
+                {!isDarking ? <div className={styles.slider}>
                         {episode ? (
                         <Slider 
                             trackStyle={{backgroundColor: '#04D361'}}
@@ -111,7 +117,23 @@ export function Player(){
                         
                         <div className={styles.emptySlider}></div>
                         )}
-                    </div>
+                    </div> : <div className={styles.slider}>
+                        {episode ? (
+                        <Slider 
+                            trackStyle={{backgroundColor: '#33ed97'}}
+                            railStyle={{backgroundColor: '#33ed97'}}
+                            handleStyle={{borderColor:'#33ed97', backgroundColor:'#33ed97'}}
+                            max={episode.duration}
+                            value={progress}
+                            onChange={handleSeek}
+                        />
+                        
+                        ) : (
+                        
+                        <div className={styles.emptySlider}></div>
+                        )}
+                    </div>}
+        
                     <span>{convertDurationToTimeString(episode?.duration ?? 0)}</span>
                 </div>
                 {/* //so vai executar o que tem depois dos "ês comerciais"/&& caso episode seja valida */}
@@ -128,7 +150,7 @@ export function Player(){
                     />
                 )}
 
-                <div className={styles.buttons}>
+                <div className={!isDarking? styles.buttons : styles.buttonsisActive}>
                     <button 
                     type="button" 
                     disabled={!episode || episodeList.length === 1}

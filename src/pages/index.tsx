@@ -16,11 +16,13 @@ import { format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { convertDurationToTimeString } from '../utils/convertDuratinToTimeString';
 
-import styles from './home.module.scss';
+import styles from './home.module.scss'
 
 import { usePlayer } from '../contexts/PlayerContext';
 
 import Head from 'next/head'
+import { useHeader } from '../contexts/HeaderContext';
+
 
 
 // tipagem
@@ -34,7 +36,6 @@ type Episode = {
     durationAsString: string;
     url: string;
     publishedAt: string;
-    episode: string;
 }
 
 type HomeProps = {
@@ -45,18 +46,23 @@ type HomeProps = {
 
 export default function Home({ latestEpisodes, allEpisodes}: HomeProps) {
 
+  const { 
+    toggleTheme,
+    isDarking 
+  } = useHeader();
+
   const { playList } = usePlayer();
 
   const episodeList = [...latestEpisodes, ...allEpisodes];
 
   return (
-    <div className={styles.homepage}>
+    <div className={!isDarking? styles.homepage : styles.homepageisActive}>
 
     <Head>
       <title> Home | Podcastr</title>
     </Head>
 
-      <section className={styles.latestEpisodes}>
+      <section className={!isDarking ? styles.latestEpisodes : styles.latestEpisodesisActive}>
         <h2>Últimos Lançamentos</h2>
         <ul>
           {latestEpisodes.map((episode, index)=> {
@@ -86,7 +92,7 @@ export default function Home({ latestEpisodes, allEpisodes}: HomeProps) {
           })}
         </ul>
       </section>
-    <section className={styles.allEpisodes}>
+    <section className={!isDarking ? styles.allEpisodes : styles.allEpisodesisActive}>
       <h2>Todos episódios</h2>
         <table cellSpacing={0}> 
             <thead>
@@ -146,6 +152,7 @@ export const getStaticProps: GetStaticProps = async () =>{
     }
   })
   // limit para limite, sort para ordenar por
+
 
 const episodes = data.map(episode => {
   return {
