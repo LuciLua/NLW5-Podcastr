@@ -47,7 +47,6 @@ type HomeProps = {
 export default function Home({ latestEpisodes, allEpisodes}: HomeProps) {
 
   const { 
-    toggleTheme,
     isDarking 
   } = useHeader();
 
@@ -56,6 +55,10 @@ export default function Home({ latestEpisodes, allEpisodes}: HomeProps) {
   const episodeList = [...latestEpisodes, ...allEpisodes];
 
   return (
+
+    <body className={styles.bodyA}>
+      
+    
     <div className={!isDarking? styles.homepage : styles.homepageisActive}>
 
     <Head>
@@ -140,6 +143,7 @@ export default function Home({ latestEpisodes, allEpisodes}: HomeProps) {
 
       {/* <p>{JSON.stringify(props.episodes)}</p> */}
     </div>
+    </body>
     )
 }
 //export const getStaticProps: GetStaticProps = async () =>{   || TIPAGEM

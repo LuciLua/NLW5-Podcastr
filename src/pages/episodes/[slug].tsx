@@ -14,6 +14,7 @@ import Image from 'next/image'
 import { usePlayer } from '../../contexts/PlayerContext';
 
 import Head from 'next/head';
+import { useHeader } from '../../contexts/HeaderContext';
 
 type Episode = {
     id: string;
@@ -34,7 +35,14 @@ type EpisodeProps = {
 export default function Episode( {episode}: EpisodeProps ){
     const { play } = usePlayer();
 
-    return(
+    const { 
+        isDarking 
+    } = useHeader();
+
+    return( 
+        
+        <body className={!isDarking ? styles.bodi : styles.bodyisActive}> 
+        
         <div className={styles.episode}>
             
         <Head>
@@ -66,7 +74,8 @@ export default function Episode( {episode}: EpisodeProps ){
 
             <div className={styles.description} 
                 dangerouslySetInnerHTML={{__html: episode.description}}/>
-        </div>
+        </div> 
+    </body>
     )
 }
 

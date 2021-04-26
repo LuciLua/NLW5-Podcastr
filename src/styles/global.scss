@@ -43,7 +43,14 @@
 
 body{
     background: var(--gray-50);
+}
 
+.bodyA{
+    background: rgb(0, 136, 255);
+}
+
+.bodyB{
+    background: red;
 }
 
 body, input, textarea, button{

@@ -12,8 +12,7 @@ import { useHeader } from '../../contexts/HeaderContext';
 export function Player(){
 
     const { 
-        toggleTheme,
-        isDarking 
+        isDarking,
     } = useHeader();
 
     // criando estados
@@ -36,8 +35,10 @@ export function Player(){
         isShuffling,
         toggleShuffle,
         toggleLoop,
-        clearPlayerState
+        clearPlayerState,
     } = usePlayer();
+
+    // --------------
 
     useEffect(() => {
         if (!audioRef.current) {
@@ -50,6 +51,8 @@ export function Player(){
             audioRef.current.pause();
         }
     }, [isPlaying])
+
+    // --------------
 
     function setupProgressListener(){
         audioRef.current.currentTime = 0;
@@ -73,9 +76,11 @@ export function Player(){
     }
 
     const episode = episodeList[currentEpisodeIndex]
+    // ---
 
-    return(
-        <div className={!isDarking ? styles.playerContainer : styles.playerContainerisActive}>
+    return ( 
+   
+    <div className={!isDarking ? styles.playerContainer : styles.playerContainerisActive}>
             <header>
                 <img src="/playing.svg" alt="Tocando agora"/>
                 <strong>Tocando agora</strong>

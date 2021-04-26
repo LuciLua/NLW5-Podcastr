@@ -14,7 +14,7 @@ export function Header(){
     
     const { 
         toggleTheme,
-        isDarking 
+        isDarking,
     } = useHeader();
 
     useEffect(() => {

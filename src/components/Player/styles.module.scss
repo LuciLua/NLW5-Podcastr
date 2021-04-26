@@ -270,13 +270,18 @@
     height: 100vh;
     padding: 3rem 4rem;
 
-    background: rgb(17, 18, 24);
+    background: rgb(21, 21, 23);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.598);
     color: var(--white);
+    z-index: 100;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+
+    transition: 0.3s;
+
 
     header{
         display: flex;
@@ -412,4 +417,19 @@
             }
         }
     }
+}
+
+
+
+.btnPush{
+    background-color: #33ed97;
+    height: 5rem;
+    position: absolute;
+    display: block;
+    border: none;
+    width: 5rem;
+    border-radius: 60px;
+    top: 43%;
+    left: 65%;
+    z-index: 1!important;
 }

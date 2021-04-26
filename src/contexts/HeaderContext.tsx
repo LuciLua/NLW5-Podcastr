@@ -6,6 +6,7 @@ type HeaderContextData ={
     toggleTheme: () => void;
     setThemeState: (state: boolean) => void;
     isDarking: boolean;
+
 }
 
 type HeaderContextProviderProps = {
@@ -21,6 +22,7 @@ export function HeaderContextProvider({ children }: HeaderContextProviderProps )
     //eventos ("valor inicial")
     const [isDarking, setIsTheming] = useState(false);
 
+
     //funcoes
 
     function toggleTheme(){
@@ -31,7 +33,6 @@ export function HeaderContextProvider({ children }: HeaderContextProviderProps )
         setIsTheming(state)
     }
 
-
     return (
 
 
@@ -39,8 +40,7 @@ export function HeaderContextProvider({ children }: HeaderContextProviderProps )
 
         toggleTheme,
         isDarking,
-        setThemeState
-
+        setThemeState,
         }}
          >
             {children}
